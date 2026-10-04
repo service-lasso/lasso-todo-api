@@ -1,0 +1,12 @@
+{
+  "name": "@service-lasso/lasso-todo-api",
+  "private": true,
+  "scripts": {
+    "package": "node scripts/package.mjs",
+    "test": "node scripts/test-service.mjs",
+    "verify": "node scripts/verify-service.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
