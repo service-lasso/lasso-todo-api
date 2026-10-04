@@ -14,4 +14,6 @@ API-AUTH-4: Tests directly cover successful protected GET/POST plus absent, wron
 API-AUTH-5: Coordinate Todo's server-side access-token forwarding and both stopped-service configuration; publish checksum-bound development consumers and corrected docs after independent review. Preserve earlier data and failures; no GA or production deployment.
 
 Copied template producer/admission programme is upstream reference, not API acceptance. Protected upstream tests remain unchanged and no upstream publisher/admission claim is made. Echo-specific starter scripts are explicitly adapted to API-1–4, with separate review/direct evidence.
-`n## API #7 import compatibility`n- API-AUTH-6: Publish the non-secret TODO_API_AUTH_CONTRACT=zitadel-introspection-v1 in env, which Core manifest import preserves. Keep the same runtime enforcement, metadata and explicit mode. Literal acquired-manifest/helper checks precede released acceptance; prior stripped-metadata attempt is retained.
+
+## API #7 import compatibility
+- API-AUTH-6: Publish the non-secret TODO_API_AUTH_CONTRACT=zitadel-introspection-v1 in env, which Core manifest import preserves. Keep the same runtime enforcement, metadata and explicit mode. Literal acquired-manifest/helper checks precede released acceptance; prior stripped-metadata attempt is retained.

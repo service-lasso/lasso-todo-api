@@ -16,4 +16,5 @@ SPEC-018 AC-18.1–18.3 / SPEC-017: fixed CLI/Core roles, all TC01–12 and CA01
 `lasso-todo-api` issue#1 / SPEC-TODO-API supersedes inherited template project identity. Dedicated template-derived Go/PostgreSQL learning service; upstream held producer notes remain historical references, not our work unit.
 
 Issue #5 / API-AUTH-1–5 closes direct localhost access around the SSO app. API enforcement and token introspection precede database operations; explicit anonymous mode is limited to preceding lessons. Core #1692 and Todo #7 coordinate the same boundary.
-`nIssue #7 / API-AUTH-6 fixes the observed Core-import capability projection without changing authentication runtime or Core schema.
+
+Issue #7 / API-AUTH-6 fixes the observed Core-import capability projection without changing authentication runtime or Core schema.

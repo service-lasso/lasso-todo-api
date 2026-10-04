@@ -15,4 +15,5 @@ SPEC-018 AC-18.1–18.3 / SPEC-017: fixed CLI/Core roles, all TC01–12 and CA01
 
 - [ ] Issue #22 source implementation: retained blocked producer/strict reader and observed immutable publication projection implemented; actual CLI/Core catalog/native proof source remains absent. Obtain DIFFERENT entire cumulative source review and NEW complete-input admission before product execution. Source regression tests remain UNEXECUTED; real publication/qualification stays open.
 Todo API#1: template provenance, Go runtime, package/test/verify, CI and Core consumer proof pending.
-`nAPI #7: preserve capability in env; review and real released Core import/SSO rerun required.
+
+API #7: preserve capability in env; review and real released Core import/SSO rerun required.
