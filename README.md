@@ -1,5 +1,13 @@
 # Lasso Todo API
 
+## Authentication boundary
+
+`/healthz` is public. `/todos` requires Zitadel access-token introspection when `TODO_API_AUTH_MODE=zitadel`; validation happens before the data handler. Invalid/revoked/expired tokens, the wrong issuer/project/issuing Todo client and identity outages cannot read or mutate rows. Missing/partial runtime configuration fails closed. Earlier local tutorials explicitly set `TODO_API_AUTH_MODE=anonymous`; localhost binding alone is not authentication.
+
+Register a separate Basic API application in the same Zitadel project as the Todo Web application. Configure `TODO_OIDC_ISSUER`, `TODO_OIDC_AUDIENCE` (project ID), `TODO_OIDC_CLIENT_ID` (Todo Web client ID), `TODO_API_CLIENT_ID` and `TODO_API_CLIENT_SECRET_FILE`. The last value is a path to an operator-owned private file containing the API secret, never its value in the manifest. Keep the file outside source/build resources, restrict Unix permissions to `0600` or Windows ACLs to the operator and SYSTEM. For a local certificate authority, `TODO_API_CA_FILE` explicitly adds its public CA certificate; TLS validation remains enabled.
+
+The paired Todo SSO helper updates both stopped manifests. Metadata `apiAuthContract: zitadel-introspection-v1` identifies the compatible consumer; older app-only SSO is not sufficient. Access tokens stay server-side and the API validates them on every call, including direct localhost calls. The list remains shared by authorized users of the configured Todo client; this does not implement per-user lists.
+
 GitHub-generated from `service-lasso/service-template`; exact develop provenance is recorded in `template-origin.json`. This separately managed Go/PostgreSQL `todo-api` service is the third progressive tutorial addition.
 
 Use Node22+ and Go1.22+, then `npm ci`, `npm test`, `npm run package`, `npm run verify`. The template package/test/verify entrypoints are adapted for this service. Platform archives contain the native runtime at the command declared in service.json, never retained database data or credentials.

@@ -23,10 +23,12 @@
     }
   ],
   "env": {
+    "TODO_API_AUTH_MODE": "anonymous",
     "TODO_API_PORT": "${endpoint.web.port}",
     "TODO_DATABASE_STATE": "${SERVICE_ROOT}/../postgres/.state/runtime.json"
   },
   "meta": {
+    "apiAuthContract": "zitadel-introspection-v1",
     "license": "Apache-2.0",
     "repository": {
       "type": "git",
