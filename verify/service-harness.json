@@ -1,10 +1,12 @@
 {
-  "serviceId": "echo-service",
+  "serviceId": "todo-api",
   "artifact": {
-    "path": "dist/echo-service-win32.zip",
+    "path": "dist/lasso-todo-api-win32.zip",
     "kind": "archive"
   },
-  "dependencies": [],
+  "dependencies": [
+    "postgres"
+  ],
   "lifecycle": {
     "install": true,
     "config": true,
