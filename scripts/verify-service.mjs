@@ -27,7 +27,7 @@ if (statePath) {
   const port = probe.address().port; await new Promise(resolve => probe.close(resolve));
   const url = `http://127.0.0.1:${port}`;
   const start = async () => {
-    child = spawn(binary, [], { cwd: consumer, env: { ...process.env, TODO_API_PORT: String(port), TODO_DATABASE_STATE: path.resolve(statePath) }, stdio: 'pipe', windowsHide: true });
+    child = spawn(binary, [], { cwd: consumer, env: { ...process.env, TODO_API_AUTH_MODE: 'anonymous', TODO_OIDC_ISSUER: '', TODO_OIDC_AUDIENCE: '', TODO_OIDC_CLIENT_ID: '', TODO_API_CLIENT_ID: '', TODO_API_CLIENT_SECRET_FILE: '', TODO_API_CA_FILE: '', TODO_API_PORT: String(port), TODO_DATABASE_STATE: path.resolve(statePath) }, stdio: 'pipe', windowsHide: true });
     closed = once(child, 'close'); let logs = ''; child.stderr.on('data', bytes => { logs += bytes; });
     for (let i = 0; i < 200; i++) {
       if (child.exitCode !== null) throw new Error('Packaged API exited: ' + logs);

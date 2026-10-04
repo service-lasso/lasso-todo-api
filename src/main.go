@@ -25,6 +25,10 @@ type Todo struct {
 }
 
 func main() {
+	auth, err := authFromEnvironment()
+	if err != nil {
+		log.Fatal("API authentication configuration invalid; inspect private configuration")
+	}
 	port, err := strconv.Atoi(os.Getenv("TODO_API_PORT"))
 	if err != nil || port < 1 || port > 65535 {
 		log.Fatal("Launch through Lasso with TODO_API_PORT")
@@ -57,7 +61,7 @@ func main() {
 	if !ready {
 		log.Fatal("PostgreSQL not ready; inspect its service logs")
 	}
-	server := &http.Server{Addr: fmt.Sprintf("127.0.0.1:%d", port), Handler: todoHandler(db), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, WriteTimeout: 10 * time.Second, IdleTimeout: 30 * time.Second}
+	server := &http.Server{Addr: fmt.Sprintf("127.0.0.1:%d", port), Handler: auth.protect(todoHandler(db)), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, WriteTimeout: 10 * time.Second, IdleTimeout: 30 * time.Second}
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer cancel()
 	go func() {
