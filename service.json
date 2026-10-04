@@ -23,6 +23,7 @@
     }
   ],
   "env": {
+    "TODO_API_AUTH_CONTRACT": "zitadel-introspection-v1",
     "TODO_API_AUTH_MODE": "anonymous",
     "TODO_API_PORT": "${endpoint.web.port}",
     "TODO_DATABASE_STATE": "${SERVICE_ROOT}/../postgres/.state/runtime.json"
