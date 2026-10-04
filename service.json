@@ -57,19 +57,31 @@
         "assetName": "lasso-todo-api-win32.zip",
         "archiveType": "zip",
         "command": "./runtime/todo-api.exe",
-        "args": []
+        "args": [],
+        "checksum": {
+          "algorithm": "sha256",
+          "assetName": "SHA256SUMS.txt"
+        }
       },
       "linux": {
         "assetName": "lasso-todo-api-linux.tar.gz",
         "archiveType": "tar.gz",
         "command": "./runtime/todo-api",
-        "args": []
+        "args": [],
+        "checksum": {
+          "algorithm": "sha256",
+          "assetName": "SHA256SUMS.txt"
+        }
       },
       "darwin": {
         "assetName": "lasso-todo-api-darwin.tar.gz",
         "archiveType": "tar.gz",
         "command": "./runtime/todo-api",
-        "args": []
+        "args": [],
+        "checksum": {
+          "algorithm": "sha256",
+          "assetName": "SHA256SUMS.txt"
+        }
       }
     }
   }
