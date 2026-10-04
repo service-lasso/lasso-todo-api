@@ -2,40 +2,7 @@ name: Development service candidate
 on:
   workflow_dispatch:
     inputs:
-      postgres-integration:
-    needs: package-consumer
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:15
-        env:
-          POSTGRES_USER: pgadmin
-          POSTGRES_PASSWORD: pgadmin
-          POSTGRES_DB: postgres
-        ports: [5432:5432]
-        options: --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - uses: actions/download-artifact@v4
-        with:
-          name: lasso-todo-api-Linux
-          path: dist
-      - name: Verify held archive against real PostgreSQL
-        shell: bash
-        run: |
-          mkdir -p .tmp
-          printf '{"ports":{"service":5432}}\n' > .tmp/postgres-state.json
-          TODO_VERIFY_DATABASE_STATE="$PWD/.tmp/postgres-state.json" node scripts/verify-service.mjs
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: api-postgres-consumer-proof
-          path: output/package-verification.json
-          if-no-files-found: error
-  publish:
+      publish:
         description: Publish the verified development service candidate
         type: boolean
         required: true
